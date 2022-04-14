@@ -100,4 +100,6 @@ title.addEventListener("click", handleTitleClick);
  이로 인해 HTML 태그들 사이 script 태그가 위치하게 되면 두 가지 문제가 발생한다.
  1. HTML을 읽는 과정에 스크립트를 만나면 중단 시점이 생기고 그만큼 Display에 표시되는 것이 지연된다.
  2. DOM 트리가 생성되기 전에 자바스크립트가 생성되지도 않은 DOM의 조작을 시도할 수 있다.  
+
+
 위 같은 상황을 막기 위해 script 태그는 body 태그 최하단에 위치하는 것이 가장 좋다.
