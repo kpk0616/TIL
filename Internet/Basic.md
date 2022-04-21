@@ -34,6 +34,8 @@ ex) ``google.com`` 의 IP 주소는 ``173.194.121.31``이다.
 웹과 인터넷은 다르다. 인터넷은 수십억 대의 컴퓨터를 연결하는 기술 인프라를 의미하고, 웹은 그 인프라 기반 위에 구축된 서비스를 의미한다.  
 인터넷 위에 구축된 다른 서비스들로는 이메일, IRC(Internet Relay Chat, 실시간 채팅 프로토콜) 등이 있다.
 
+출처 : [Web개발 학습하기 - MDN](https://developer.mozilla.org/ko/docs/Learn/Common_questions/How_does_the_Internet_work)
+
 # HTTP란?
 HTTP (HyperText Transfer Protocol) 는 TCP/IP 통신을 기반으로 HTML 문서 같은 리소스들을 가져올 수 있게 해 주는 **프로토콜**이다.  
 즉, 요청과 응답을 가능하게 해 주는 메시지의 통신 규악을 의미한다.  
@@ -55,6 +57,7 @@ HTTP는 애플리케이션 계층의 프로토콜로, HTML 문서만이 HTTP 통
 웹 브라우저가 사용자 에이전트의 기능을 담당한다. 브라우저는 클라이언트의 요청을 서버에게 대신 전달하고, 파일을 구문 분석해 실행해야 할 스크립트와 페이지에 포함된 
 리소스들(이미지, 비디오, ..)을 잘 표시하기 위한 레이아웃 정보 (CSS)에 대응하는 추가적인 요청들을 받아온다. 받아온 리소스들을 혼합해 완전한 웹 페이지로 표시한다.
 
+출처 : [HTTP 개요 - MDN](https://developer.mozilla.org/ko/docs/Web/HTTP/Overview), [HTTP란 무엇인가? - MDN](https://velog.io/@surim014/HTTP%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80)
 
 # 브라우저의 작동 원리
 브라우저의 주요 기능은 사용자가 선택한 자원을 서버에 요청하고 브라우저에 표시하는 것이다. 이 때 자원은 주로 HTML 문서이지만, PDF 또는 다른 형태일 수 있다. 자원의 주소는 URI(Uniform Resource Identifier)에 의해 정해진다.
@@ -107,8 +110,39 @@ URI의 하위 개념으로는 URL(Uniformed Resource Locator)과 URN(Uniformed R
   
 
 # 도메인 네임은 무엇인가?
+**도메인 네임**은 인터넷 웹 사이트의 주소로, URL에서 특정 웹 페이지가 속하는 서버를 식별할 때 사용한다.
+인터넷에서 복잡한 IP 주소 대신, 도메인 네임을 통해 웹사이트를 쉽게 찾아갈 수 있다.  
 
+![image](https://user-images.githubusercontent.com/70744494/164506572-6f386da0-e6f9-49e7-ae9a-0afd25363d73.png)
+  
+점으로 구분하며 왼쪽에서 오른쪽으로 읽는 여러 부분으로 구성되어 있다.
+
+## 도메인 네임의 구조
+### TLD
+Top Level Domain, **최상위 도메인**으로 서비스의 일반적인 목적을 사용자에게 알려준다.  
+라틴 문자뿐만 아니라 특수문자도 가능하다. 최대 길이는 63자이나, 보통은 2-3자로 사용한다.  
+가장 일반적인 TLD는 ``.com``, ``.org``, ``.net``이 있다.  
+``.kr``, ``.us``, ``.fr`` 등은 주어진 언어로 제공하거나 특정 국가에 호스팅할 필요가 있다. (특정 언어나 국가의 자원을 나타내기 위함이다.)  
+ex) [whois.kisa.or.kr](https://xn--c79as89aj0e29b77z.xn--3e0b707e/)  
+``.gov``는 정부 부서에서만 사용이 가능하고, ``.edu``는 교육 및 학술 기관에서만 사용 가능하다.
+### 라벨 (label)
+라벨은 TLD를 따른다. 문자 A-Z, 숫자 0-9, 문자만 포함해 1-63개의 문자로 구성된 대소문자를 구분하지 않는 문자 시퀀스를 갖는다.  
+도메인 이름에는 여러 라벨을 가질 수 있고, TLD 바로 앞에 있는 라벨을 SLD (Secondary Label Domain) 이라고 한다.
+
+출처 : [도메인 네임이란?](https://codingmomong.tistory.com/219)
 
 # 호스팅은 무엇인가?
+호스팅이란 어떤 서비스를 빌려 사용함을 의미한다. 호스팅에는 웹 호스팅, 서버 호스팅, 클라우드 호스팅 등이 있다.
 
-출처 : [Web개발 학습하기 - MDN](https://developer.mozilla.org/ko/docs/Learn/Common_questions/How_does_the_Internet_work), [HTTP 개요 - MDN](https://developer.mozilla.org/ko/docs/Web/HTTP/Overview), [HTTP란 무엇인가? - MDN](https://velog.io/@surim014/HTTP%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80)
+## 웹 호스팅
+웹 공간을 임대하는 것을 웹 호스팅이라고 한다.  
+웹호스팅 서비스를 받으면 도메인 이름과 이메일 주소를 사용할 수 있고, 빠른 속도에 다양한 웹서비스를 이용하면서도, 서버컴퓨터 운영비는 절감할 수 있다는 장점이 있다.  
+
+## 서버 호스팅
+그렇다면 서버 호스팅과 웹 호스팅은 뭐가 다를까?
+
+![image](https://user-images.githubusercontent.com/70744494/164527032-9d490d3a-88f6-4aa6-91c6-8c73f407d21a.png)
+
+웹 호스팅의 경우에는 전체 서버 중 일부만을 빌려 사용하는 것이고, 서버 호스팅의 경우에는 서버 하나를 전체로 구매해 서버 운영에 필요한 인프라까지 제공받을 수 있는 서비스를 의미한다. 웹 호스팅의 경우에는 저렴한 가격에 서비스를 제공받을 수 있으나 자원 사용량과 서버 관리 권한에 제약을 받기 때문에 주로 소규모 웹사이트 운용에 사용된다. 반면 서버 호스팅의 경우에는 서버 관리에 대한 직접적인 권한을 갖고 서버를 단독으로 사용하므로 보안상의 이점이 있다. 하지만 초기 구축 단계에서 시간과 비용이 많이 소모된다는 단점이 있다. 서버 호스팅은 주로 회사의 인트라넷 (Intranet, 단체의 직원만 접근이 가능한 사설망), 대형 쇼핑몰 등 고정적으로 대용량 트래픽과 DB가 사용되는 곳에서 이용된다.
+
+출처 : [웹호스팅](https://www.dotname.co.kr/hosting/web/guide)
